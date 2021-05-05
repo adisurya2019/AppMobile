@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Dimensions, ImageBackground, ScrollableTabView } from 'react-native'
+import { color } from 'react-native-reanimated';
 import { imgHeader } from '../../assets/';
 import { Kategori } from '../../components';
 
@@ -13,8 +14,16 @@ const Home = () => {
                     </Text>
                     <Text style={styles.subtext}>Dessert and drink!</Text>
                     <Text style={styles.saldo}>SISA SALDO :</Text>
-                    <Text style={styles.uang}>Rp. 250.000</Text>
+                    <Text style={styles.uang}>Rp. 100.000</Text>
                 </ImageBackground>
+                <View style={{padding:10}}>
+            <Text style={{color: 'white'}}>.</Text>
+        </View>
+            </View>
+            <View style={styles.beranda}>
+                <Text style={{color: 'black'}}>
+                    BERANDA
+                </Text>
             </View>
             <Kategori />
         </View>
@@ -58,5 +67,18 @@ const styles = StyleSheet.create({
         color: 'white',
         marginLeft:300,
         fontWeight: 'bold'
+    },
+    beranda: {
+        position: 'absolute',
+        top: 175,
+        left: 30,
+        right: 30,
+        elevation: 15,
+        backgroundColor: '#ffffff',
+        borderRadius: 35,
+        height: 55,
+        shadowColor: '#7f5df0',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
