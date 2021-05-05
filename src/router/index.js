@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Home, Splash, Akun, Pesanan} from '../pages';
 
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +55,7 @@ const MainApp = () => {
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                         <Image 
-                            source={require('../assets/images/love.png')}
+                            source={require('../assets/images/cart.png')}
                             resizeMode="contain"
                             style={{
                                 widht: 25,
@@ -63,7 +64,7 @@ const MainApp = () => {
                             }}
                         />
                         <Text style={{color: focused ? '#ff797e' : '#grey', fontSize: 12}}>
-                            FAVORIT
+                            KERANJANG
                         </Text>
                     </View>
                 )
