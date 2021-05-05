@@ -5,7 +5,7 @@ export const categories = [
       image: require('../assets/produk/dessert.png')
     },
     {
-      id: 1,
+      id: 2,
       name: 'Drink',
       image: require('../assets/produk/drink.png')
     },

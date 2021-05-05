@@ -21,8 +21,8 @@ const Home = () => {
         </View>
             </View>
             <View style={styles.beranda}>
-                <Text style={{color: 'black'}}>
-                    BERANDA
+                <Text style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>
+                    MENU
                 </Text>
             </View>
             <Kategori />

@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, FlatList, TouchableHighlight, Image } from 'rea
 import { categories } from '../../data/dataArrays';
 
 
-
 export default class CategoriesScreen extends React.Component {
   static navigationOptions = {
     title: 'Categories'
@@ -16,11 +15,11 @@ export default class CategoriesScreen extends React.Component {
   onPressCategory = item => {
     const title = item.name;
     const category = item;
-    this.props.navigation.navigate('RecipesList', { category, title });
+    this.props.navigation.navigate("detailDessert", {  title, category });
   };
 
   renderCategory = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressCategory(item)}>
+    <TouchableHighlight underlayColor='rgba(73,182,77,1,0.6)' onPress={() => this.onPressCategory(item)}>
       <View style={styles.container}>
         <Image style={{
             borderRadius: 20,
