@@ -1,62 +1,54 @@
 import React from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableHighlight, Image } from 'react-native'
-import { categories } from '../../data/dataArrays';
+import { StyleSheet, Text, View, TouchableHighlight, Image, ScrollView, TouchableOpacity } from 'react-native'
 
 
-export default class CategoriesScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Categories'
-  };
-
-  constructor(props) {
-    super(props);
-  }
-
-  onPressCategory = item => {
-    const title = item.name;
-    const category = item;
-    this.props.navigation.navigate("detailDessert", {  title, category });
-  };
-
-  renderCategory = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,1,0.6)' onPress={() => this.onPressCategory(item)}>
-      <View style={styles.container}>
-        <Image style={{
-            borderRadius: 20,
-            height: 200,
-            width: 300
-          }} source={item.image} />
-        <Text style={{
-            flex: 1,
-            fontSize: 15,
-            fontWeight: 'bold',
-            textAlign: 'center',
-            color: '#333333',
-            padding: 10,
-        }
-        }>{item.name}</Text>
+function Kategori ({ }) {
+  return (
+    <ScrollView>
+    <View style={styles.container}>
+     <TouchableOpacity oonPress={() => navigation.navigate("dessertDetail")}>
+      <View style={{alignItems: 'center'}} >
+        <Image style={styles.image_container} source={require('../../assets/produk/dessert.png')} />
+        <Text style={styles.text_container}>Dessert</Text>
       </View>
-    </TouchableHighlight>
-  );
-
-  render() {
-    return (
-      <View>
-        <FlatList
-          data={categories}
-          renderItem={this.renderCategory}
-          keyExtractor={item => `${item.id}`}
-        />
+      </TouchableOpacity>
+      <TouchableOpacity oonPress={() => props.navigation.navigate("dessertDetail")}>
+      <View style={{alignItems: 'center', marginTop: -20}}>
+        <Image style={styles.image_container} source={require('../../assets/produk/drink.png')} />
+        <Text style={styles.text_container}>Drink</Text>
       </View>
-    );
-  }
+      </TouchableOpacity>
+    </View>
+    </ScrollView>
+  )
 }
 
+
+ 
+export default Kategori
+
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        margin: 3,
-        alignItems: "center",
-        textAlign: "center"
-    }
-  });
+  container: {
+    flex: 1,
+    margin: 5,
+    alignItems: "center",
+    justifyContent: 'center'
+  },
+  image_container:{
+    borderRadius: 20,
+    height: 200,
+    width: 300,
+  },
+  text_container:{
+    top: -45,
+    fontSize: 20,
+    padding: 15,
+    borderRadius: 20,
+    width: 200,
+    color: 'black',
+    backgroundColor: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold' 
+  },
+})
+
