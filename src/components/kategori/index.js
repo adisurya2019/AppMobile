@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableHighlight, Image, ScrollView, TouchableOpacity } from 'react-native'
-import DessertComponent from '../dessert' 
+
 
 function KategoriDessert ({ onPress }) {
   return (
