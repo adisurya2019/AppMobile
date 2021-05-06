@@ -1,10 +1,11 @@
-import React from 'react'
-import { StyleSheet, Text, View, Dimensions, ImageBackground, ScrollableTabView } from 'react-native'
+import React, { Component } from 'react'
+import { StyleSheet, Text, View, Dimensions, ImageBackground, ScrollableTabView, ScrollView } from 'react-native'
 import { color } from 'react-native-reanimated';
 import { imgHeader } from '../../assets/';
-import { Kategori } from '../../components';
+import { KategoriDessert, KategoriDrink } from '../../components';
 
-const Home = () => {
+class Home extends Component {
+    render(){
     return (
         <View style={styles.container}>
             <View>
@@ -25,9 +26,13 @@ const Home = () => {
                     MENU
                 </Text>
             </View>
-            <Kategori />
+            <ScrollView>
+            <KategoriDessert onPress={()=> this.props.navigation.navigate('Dessert')} />
+            <KategoriDrink onPress={()=> this.props.navigation.navigate('Drink')} />
+            </ScrollView>
         </View>
     )
+    }
 }
 
 export default Home

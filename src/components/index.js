@@ -1,4 +1,5 @@
-import Kategori from './kategori'
+import KategoriDessert from './kategori'
+import KategoriDrink from './kategori2'
 import detailScreen from '../pages/detailDessert'
 
-export {Kategori, detailScreen}
+export {KategoriDessert, KategoriDrink, detailScreen}

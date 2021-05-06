@@ -1,31 +1,22 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableHighlight, Image, ScrollView, TouchableOpacity } from 'react-native'
+import DessertComponent from '../dessert' 
 
-
-function Kategori ({ }) {
+function KategoriDessert ({ onPress }) {
   return (
-    <ScrollView>
     <View style={styles.container}>
-     <TouchableOpacity oonPress={() => navigation.navigate("dessertDetail")}>
-      <View style={{alignItems: 'center'}} >
-        <Image style={styles.image_container} source={require('../../assets/produk/dessert.png')} />
+     <TouchableOpacity onPress={onPress}>
+     <View style={{alignItems: 'center'}} >
+            <Image style={styles.image_container} source={require('../../assets/produk/dessert.png')} />
         <Text style={styles.text_container}>Dessert</Text>
       </View>
       </TouchableOpacity>
-      <TouchableOpacity oonPress={() => props.navigation.navigate("dessertDetail")}>
-      <View style={{alignItems: 'center', marginTop: -20}}>
-        <Image style={styles.image_container} source={require('../../assets/produk/drink.png')} />
-        <Text style={styles.text_container}>Drink</Text>
-      </View>
-      </TouchableOpacity>
     </View>
-    </ScrollView>
   )
 }
 
-
  
-export default Kategori
+export  default KategoriDessert
 
 const styles = StyleSheet.create({
   container: {
