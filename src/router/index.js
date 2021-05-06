@@ -59,9 +59,9 @@ const MainApp = () => {
                             source={require('../assets/images/cart.png')}
                             resizeMode="contain"
                             style={{
-                                "widht": 25,
-                                "height": 25,
-                                "tintColor": focused ? '#ff797e' : 'grey'
+                                'widht': 25,
+                                'height': 25,
+                                'tintColor': focused ? '#ff797e' : 'grey'
                             }}
                         />
                         <Text style={{color: focused ? '#ff797e' : '#grey', fontSize: 12}}>
@@ -79,9 +79,9 @@ const MainApp = () => {
                             source={require('../assets/images/profil.png')}
                             resizeMode="contain"
                             style={{
-                                "widht": 25,
-                                "height": 25,
-                                "tintColor": focused ? '#ff797e' : 'grey'
+                                'widht': 25,
+                                'height': 25,
+                                'tintColor': focused ? '#ff797e' : 'grey'
                             }}
                         />
                         <Text style={{color: focused ? '#ff797e' : '#grey', fontSize: 12}}>

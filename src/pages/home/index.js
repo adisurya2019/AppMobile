@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View, Dimensions, ImageBackground, ScrollableTabView, ScrollView } from 'react-native'
 import { color } from 'react-native-reanimated';
 import { imgHeader } from '../../assets/';
-import { KategoriDessert, KategoriDrink } from '../../components';
+import { KategoriDessert, KategoriDrink, SaldoComponent } from '../../components';
 
 class Home extends Component {
     render(){
@@ -13,22 +13,20 @@ class Home extends Component {
                     <Text style={styles.text}>
                         DESSERT CAMP
                     </Text>
-                    <Text style={styles.subtext}>Dessert and drink!</Text>
-                    <Text style={styles.saldo}>SISA SALDO :</Text>
+                    <Text style={styles.saldo}>Saldo</Text>
                     <Text style={styles.uang}>Rp. 100.000</Text>
                 </ImageBackground>
                 <View style={{padding:10}}>
-            <Text style={{color: 'white'}}>.</Text>
-        </View>
+                    <Text style={{color: 'white'}}>.</Text>
+                </View>
             </View>
-            <View style={styles.beranda}>
-                <Text style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>
-                    MENU
-                </Text>
+            <SaldoComponent />
+            <View style={{padding:5}}>
+                    <Text style={{color: 'white'}}>.</Text>
             </View>
             <ScrollView>
-            <KategoriDessert onPress={()=> this.props.navigation.navigate('Dessert')} />
-            <KategoriDrink onPress={()=> this.props.navigation.navigate('Drink')} />
+                <KategoriDessert onPress={()=> this.props.navigation.navigate('Dessert')} />
+                <KategoriDrink onPress={()=> this.props.navigation.navigate('Drink')} />
             </ScrollView>
         </View>
     )
@@ -62,28 +60,16 @@ const styles = StyleSheet.create({
         marginLeft: 15
     },
     saldo:{
-        fontSize: 14,
-        color: 'white',
-        marginLeft: 270,
-        marginTop: 12.5
-    },
-    uang: {
         fontSize: 16,
         color: 'white',
-        marginLeft:300,
+        marginLeft: 15,
+        marginTop: 5
+    },
+    uang: {
+        fontSize: 20,
+        color: 'white',
+        marginLeft: 15,
         fontWeight: 'bold'
     },
-    beranda: {
-        position: 'absolute',
-        top: 175,
-        left: 30,
-        right: 30,
-        elevation: 15,
-        backgroundColor: '#ffffff',
-        borderRadius: 35,
-        height: 55,
-        shadowColor: '#7f5df0',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
+    
 });
