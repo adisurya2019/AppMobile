@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Dimensions, ImageBackground, ScrollableTabView, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, ImageBackground, ScrollableTabView, ScrollView, Alert } from 'react-native'
 import { color } from 'react-native-reanimated';
 import { imgHeader } from '../../assets/';
 import { KategoriDessert, KategoriDrink, SaldoComponent } from '../../components';
@@ -20,8 +20,8 @@ class Home extends Component {
                     <Text style={{color: 'white'}}>.</Text>
                 </View>
             </View>
-            <SaldoComponent />
-            <View style={{padding:5}}>
+            <SaldoComponent onPress={()=> Alert('Fitur Ini Belum Tersedia')}/>
+            <View style={{padding:3}}>
                     <Text style={{color: 'white'}}>.</Text>
             </View>
             <ScrollView>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: 'white',
         marginLeft: 15,
-        marginTop: 5
+        marginTop: 15
     },
     uang: {
         fontSize: 20,

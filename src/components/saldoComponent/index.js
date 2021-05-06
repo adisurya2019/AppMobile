@@ -1,13 +1,32 @@
 import React from 'react'
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Alert } from 'react-native'
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 
 const SaldoComponent = () => {
     return (
         <View style={styles.container_saldo}>
             <View style={styles.container_dalam}>
-                <Text>Top Up</Text>
-                <Text>Favorit</Text>
-                <Text>History</Text>
+                <TouchableOpacity onPress={() => Alert.alert('Fitur Ini Masih Belum Tersedia')}>
+                <View style={{alignItems:'center'}}>
+                    <AntDesign name={'totop'} size={30} color={'#ff797e'} />
+                    <Text style={styles.teks}>Top Up</Text>
+                </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => Alert.alert('Fitur Ini Masih Belum Tersedia')}>
+                <View style={{alignItems:'center'}}>
+                    <MaterialIcons name={'favorite'} size={30} color={'#ff797e'} />
+                    <Text style={styles.teks}>Favorit</Text>
+                </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => Alert.alert('Fitur Ini Masih Belum Tersedia')}>
+                <View style={{alignItems:'center'}}>
+                    <FontAwesome5 name={'history'} size={30} color={'#ff797e'} />
+                    <Text style={styles.teks}>History</Text>
+                </View>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -32,11 +51,14 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.34,
         shadowRadius: 6.27,
         elevation: 10,
-        marginTop: -windowHeight*0.145,
+        marginTop: -windowHeight*0.12,
     },
     container_dalam:{
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginHorizontal: 30
+    },
+    teks:{
+        color: '#ff797e'
     }
 })
