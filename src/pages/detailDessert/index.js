@@ -1,39 +1,38 @@
 import React, {useEffect, useState} from 'react';
-import { Button, Image, ScrollView, StyleSheet, Text, View, Alert } from 'react-native'
+import { Button, Image, ScrollView, StyleSheet, Text, View, Alert,FlatList } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const detailDessert = () => {
-    const [data,setData] = useState();
+const detailDessert = props => {
+  const [data,setData] = useState();
   //did mount
-    useEffect(()=>{
-        fetch('https://my-json-server.typicode.com/indrawerdisanjaya/mockjson/posts')
-        .then(response => response.json())
-        .then(data => setData(data))
+  useEffect(()=>{
+    fetch('https://my-json-server.typicode.com/indrawerdisanjaya/mockjson/posts')
+    .then(response => response.json())
+    .then(data => setData(data))
     },[])
     console.log(data);
     return (
-        <ScrollView>
-        {!data ? <Text>Loading...</Text>:
-        data.map(anggota =>(
-            <View style={styles.container}>
-                <View style={styles.card_container}>
-                    <Image style = {styles.image}
-                        source={{uri: anggota.image}}
-                    />
-                    <View style={styles.konten}>
-                        <Text style={styles.teks_container} key={anggota.title}>{anggota.title}</Text>
-                        <Text style={styles.teks_harga} key={anggota.price}>{anggota.price}</Text>
-                        <View style={styles.cart}>
-                        <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
-                            <Text>ADD TO CART</Text>
-                        </TouchableOpacity>
-                        </View>
-                    </View>
-                </View>
+      <View style={styles.container}>
+       <FlatList
+        data={data}
+        renderItem={({item,index}) => (
+          <View style={styles.card_container}>
+          <Image style={styles.image}
+          source={{uri: item.image}}/>
+            <View style={styles.konten}>
+            <Text style={styles.teks_container}>{item.title}</Text>
+            <Text style={styles.teks_harga}>{item.price}</Text>
+            <View style={styles.cart}>
+              <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
+                  <Text>ADD TO CART</Text>
+              </TouchableOpacity>
             </View>
-        ))
-        }
-        </ScrollView>
+            </View>
+          </View>
+        )}
+        keyExtractor={item => item.id}
+      />
+      </View>
     )
 }
 export default detailDessert
