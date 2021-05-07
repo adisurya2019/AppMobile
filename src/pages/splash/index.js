@@ -13,6 +13,7 @@ const Splash = ({ navigation }) => {
     return (
        <View  style={styles.background}>
            <Image source={logo} style={styles.logo} />
+           <Text style={styles.judul}>DESSERT CAMP</Text>
        </View>
     )
 }
@@ -30,5 +31,11 @@ const styles = StyleSheet.create({
     logo: {
         height: 200,
         width: 200
+    },
+    judul:{
+        marginTop: 10,
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'black'
     }
 })
