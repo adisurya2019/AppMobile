@@ -3,7 +3,7 @@ import { Button, Image, ScrollView, StyleSheet, Text, View, Alert } from 'react-
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
-const detailDrink = props => {
+const detailDrink = (props) => {
     const [data,setData] = useState();
   //did mount
     useEffect(()=>{
@@ -15,15 +15,15 @@ const detailDrink = props => {
     return (
         <ScrollView>
         {!data ? <Text>Loading...</Text>:
-        data.map(anggota =>(
+        data.map(drink =>(
             <View style={styles.container}>
                 <View style={styles.card_container}>
                     <Image style = {styles.image}
-                        source={{uri: anggota.image}}
+                        source={{uri: drink.image}}
                     />
                     <View style={styles.konten}>
-                        <Text style={styles.teks_container} key={anggota.title}>{anggota.title}</Text>
-                        <Text style={styles.teks_harga} key={anggota.price}>{anggota.price}</Text>
+                        <Text style={styles.teks_container} key={drink.id}>{drink.title}</Text>
+                        <Text style={styles.teks_harga} key={drink.title}>{drink.price}</Text>
                         <View style={styles.cart}>
                         <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
                             <Text>ADD TO CART</Text>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Alert } from 'react-native'
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -11,7 +11,7 @@ const SaldoComponent = () => {
             <View style={styles.container_dalam}>
                 <TouchableOpacity onPress={() => Alert.alert('Fitur Ini Masih Belum Tersedia')}>
                 <View style={{alignItems:'center'}}>
-                    <AntDesign name={'totop'} size={30} color={'#ff797e'} />
+                    <Foundation name={'dollar-bill'} size={30} color={'#ff797e'} />
                     <Text style={styles.teks}>Top Up</Text>
                 </View>
                 </TouchableOpacity>

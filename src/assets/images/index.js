@@ -6,6 +6,7 @@ import Love from './love.png'
 import Profil from './profil.png'
 import imgHeader from './header1.png'
 import arrowBack from './arrow_back.png'
+import logo from './logo.png'
 
 
-export { Cart, HomeButton, Info, List, Love, Profil, imgHeader, arrowBack} 
+export { Cart, HomeButton, Info, List, Love, Profil, imgHeader, arrowBack, logo} 

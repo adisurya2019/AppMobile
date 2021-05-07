@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Button, Image, ScrollView, StyleSheet, Text, View, Alert } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const detailDessert = props => {
+const detailDessert = () => {
     const [data,setData] = useState();
   //did mount
     useEffect(()=>{

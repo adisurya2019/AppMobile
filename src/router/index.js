@@ -9,6 +9,7 @@ import {Home, Splash, Akun, Pesanan, detailDessert, detailDrink} from '../pages'
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
 const MainApp = () => {
     return (
         <Tab.Navigator tabBarOptions={{
@@ -38,14 +39,10 @@ const MainApp = () => {
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                         <Image 
                             source={require('../assets/images/home.png')}
-                            resizeMode="contain"
-                            style={{
-                                "widht": 25,
-                                "height": 25,
-                                "tintColor": focused ? '#ff797e' : 'grey'
-                            }}
+                            resizeMode= 'contain'
+                            style={[styles.tabicon,{tintColor: focused ? '#ff797e' : 'grey'}]}
                         />
-                        <Text style={{color: focused ? '#ff797e' : 'grey', fontSize: 12}}>
+                        <Text style={[styles.text, {color: focused ? '#ff797e' : 'grey'}]}>
                             BERANDA
                         </Text>
                     </View>
@@ -57,14 +54,10 @@ const MainApp = () => {
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 4}}>
                         <Image 
                             source={require('../assets/images/cart.png')}
-                            resizeMode="contain"
-                            style={{
-                                'widht': 25,
-                                'height': 25,
-                                'tintColor': focused ? '#ff797e' : 'grey'
-                            }}
+                            resizeMode= 'contain'
+                            style={[styles.tabicon,{tintColor: focused ? '#ff797e' : 'grey'}]}
                         />
-                        <Text style={{color: focused ? '#ff797e' : '#grey', fontSize: 12}}>
+                        <Text style={[styles.text, {color: focused ? '#ff797e' : 'grey'}]}>
                             KERANJANG
                         </Text>
                     </View>
@@ -78,13 +71,9 @@ const MainApp = () => {
                         <Image 
                             source={require('../assets/images/profil.png')}
                             resizeMode="contain"
-                            style={{
-                                'widht': 25,
-                                'height': 25,
-                                'tintColor': focused ? '#ff797e' : 'grey'
-                            }}
+                            style={[styles.tabicon,{tintColor: focused ? '#ff797e' : 'grey'}]}
                         />
-                        <Text style={{color: focused ? '#ff797e' : '#grey', fontSize: 12}}>
+                       <Text style={[styles.text, {color: focused ? '#ff797e' : 'grey'}]}>
                             AKUN
                         </Text>
                     </View>
@@ -97,7 +86,7 @@ const MainApp = () => {
 
 const Router = () => {
     return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen name="Food Camp" component={MainApp} options={{headerShown: false,}} />
         <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}} />
         <Stack.Screen name="Dessert" component={detailDessert} />
@@ -118,5 +107,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.5,
         elevation: 5,
-    }
+    },
+    tabicon:{
+        width : 25,
+        height: 25
+      },
+      text:{
+          fontSize: 12
+      }
 })
