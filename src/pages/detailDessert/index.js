@@ -1,116 +1,41 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react';
 import { Button, Image, ScrollView, StyleSheet, Text, View, Alert } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const detailDessert = () => {
+const detailDessert = props => {
+    const [data,setData] = useState();
+  //did mount
+    useEffect(()=>{
+        fetch('https://my-json-server.typicode.com/indrawerdisanjaya/mockjson/posts')
+        .then(response => response.json())
+        .then(data => setData(data))
+    },[])
+    console.log(data);
     return (
         <ScrollView>
-        <View style={styles.container}>
-            <View style={styles.card_container}>
-                <Image 
-                    source={require('../../assets/produk/dessert.png')}
-                    style={styles.image}
-                />
-                <View style={styles.konten}>
-                    <Text style={styles.teks_container}>Dessert Satu</Text>
-                    <Text style={styles.teks_harga}>Rp. 15.000</Text>
-                    <View style={styles.cart}> 
+        {!data ? <Text>Loading...</Text>:
+        data.map(anggota =>(
+            <View style={styles.container}>
+                <View style={styles.card_container}>
+                    <Image style = {styles.image}
+                        source={{uri: anggota.image}}
+                    />
+                    <View style={styles.konten}>
+                        <Text style={styles.teks_container} key={anggota.title}>{anggota.title}</Text>
+                        <Text style={styles.teks_harga} key={anggota.price}>{anggota.price}</Text>
+                        <View style={styles.cart}>
                         <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
                             <Text>ADD TO CART</Text>
                         </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </View>
-        </View>
-        <View style={styles.container}>
-            <View style={styles.card_container}>
-                <Image 
-                    source={require('../../assets/produk/dessert.png')}
-                    style={styles.image}
-                />
-                <View style={styles.konten}>
-                    <Text style={styles.teks_container}>Dessert Satu</Text>
-                    <Text style={styles.teks_harga}>Rp. 15.000</Text>
-                    <View style={styles.cart}> 
-                        <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
-                            <Text>ADD TO CART</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </View>
-        <View style={styles.container}>
-            <View style={styles.card_container}>
-                <Image 
-                    source={require('../../assets/produk/dessert.png')}
-                    style={styles.image}
-                />
-                <View style={styles.konten}>
-                    <Text style={styles.teks_container}>Dessert Satu</Text>
-                    <Text style={styles.teks_harga}>Rp. 15.000</Text>
-                    <View style={styles.cart}> 
-                        <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
-                            <Text>ADD TO CART</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </View>
-        <View style={styles.container}>
-            <View style={styles.card_container}>
-                <Image 
-                    source={require('../../assets/produk/dessert.png')}
-                    style={styles.image}
-                />
-                <View style={styles.konten}>
-                    <Text style={styles.teks_container}>Dessert Satu</Text>
-                    <Text style={styles.teks_harga}>Rp. 15.000</Text>
-                    <View style={styles.cart}> 
-                        <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
-                            <Text>ADD TO CART</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </View>
-        <View style={styles.container}>
-            <View style={styles.card_container}>
-                <Image 
-                    source={require('../../assets/produk/dessert.png')}
-                    style={styles.image}
-                />
-                <View style={styles.konten}>
-                    <Text style={styles.teks_container}>Dessert Satu</Text>
-                    <Text style={styles.teks_harga}>Rp. 15.000</Text>
-                    <View style={styles.cart}> 
-                        <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
-                            <Text>ADD TO CART</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </View>
-        <View style={styles.container}>
-            <View style={styles.card_container}>
-                <Image 
-                    source={require('../../assets/produk/dessert.png')}
-                    style={styles.image}
-                />
-                <View style={styles.konten}>
-                    <Text style={styles.teks_container}>Dessert Satu</Text>
-                    <Text style={styles.teks_harga}>Rp. 15.000</Text>
-                    <View style={styles.cart}> 
-                        <TouchableOpacity onPress={() => Alert.alert('Pesanan ditambahkan ke keranjang') }>
-                            <Text>ADD TO CART</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </View>
+        ))
+        }
         </ScrollView>
     )
 }
-
 export default detailDessert
 
 const styles = StyleSheet.create({
@@ -153,19 +78,22 @@ const styles = StyleSheet.create({
         top: -10
     },
     konten:{
-        alignItems: 'flex-end',
+        alignItems: 'center',
         justifyContent: 'center',
     },
     teks_container:{
         marginTop: 30,
-        alignItems: 'baseline',
+        alignItems: 'center',
         fontWeight: 'bold',
-        top: -15
+        top: -15,
+        marginLeft: 15,
+        left: 15
     },
     teks_harga: {
         top: -15,
         marginLeft:0,
-        margin: 10
+        margin: 10,
+        
     },
     cart:{
         top: -15,
@@ -174,6 +102,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 30,
         alignItems: 'center',
-        left: 30,
+        left: 20,
     }
 })
