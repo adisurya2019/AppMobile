@@ -3,14 +3,14 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import { logo } from '../../assets'
 
 const Login = () => {
-
+    
     return (
         <View style={styles.background}>
             <View style={styles.logoparent}>
                 <Image source={logo} style={styles.logo} />
                 <Text style={styles.judul}>DESSERT CAMP</Text>
                 <View>
-                    
+
                 </View>
             </View>
 
