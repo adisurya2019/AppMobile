@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {Home, Splash, Akun, Pesanan, detailDessert, detailDrink} from '../pages';
+import {Home, Splash, Akun, Pesanan, detailDessert, detailDrink, SignUp, Login} from '../pages';
 
 
 
@@ -86,9 +86,11 @@ const MainApp = () => {
 
 const Router = () => {
     return (
-    <Stack.Navigator initialRouteName="Splash">
-        <Stack.Screen name="Food Camp" component={MainApp} options={{headerShown: false,}} />
+    <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}} />
+        <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false}} />
+        <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
+        <Stack.Screen name="Food Camp" component={MainApp} options={{headerShown: false,}} />
         <Stack.Screen name="Dessert" component={detailDessert} />
         <Stack.Screen name="Drink" component={detailDrink} />
      </Stack.Navigator>
