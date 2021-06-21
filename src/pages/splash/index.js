@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView 
 import { logo } from '../../assets'
 import { login, subscribeToAuth } from '../../controller/loginController'
 import { blackish, orangeish } from '../../color/Color'
+import { color } from 'react-native-reanimated';
 export default function Splash({ navigation }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -91,7 +92,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },
-
+  textInputView: {
+    
+    color: '#000'
+  },
   textInput: {
     width: 300,
     height: 50,
@@ -104,7 +108,8 @@ const styles = StyleSheet.create({
   textForInput: {
     fontSize: 20,
     alignSelf: 'center',
-    fontWeight: "600"
+    fontWeight: "600",
+    color: '#777'
   },
   textHeadline: {
     fontSize: 30,
